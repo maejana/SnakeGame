@@ -1,0 +1,22 @@
+{
+  "README.html": {
+    "href": "README.html",
+    "title": "SnakeGame | SnakeGame",
+    "summary": "SnakeGame A simple Snake game built with WPF in C#. \uD83D\uDCCC Features Control the snake using arrow keys Generate food and increase score Collision detection (walls & self-collision) Dynamic speed increase Game Over display \uD83D\uDE80 Installation Requirements Visual Studio with .NET support .NET 6 or later Clone & Run the Project git clone https://github.com/your-user/snakegame.git cd snakegame Open the SnakeGame.sln file in Visual Studio. Press F5 to start the game. \uD83C\uDFAE Controls ⬆️ Up ⬇️ Down ⬅️ Left ➡️ Right \uD83D\uDCDC License This project is licensed under the MIT License. See the LICENSE file for more details."
+  },
+  "getting-started.html": {
+    "href": "getting-started.html",
+    "title": "Getting Started | SnakeGame",
+    "summary": "Getting Started"
+  },
+  "index.html": {
+    "href": "index.html",
+    "title": "This is the HOMEPAGE. | SnakeGame",
+    "summary": "This is the HOMEPAGE. Refer to Markdown for how to write markdown files. Quick Start Notes: Add images to the images folder if the file is referencing an image."
+  },
+  "introduction.html": {
+    "href": "introduction.html",
+    "title": "Introduction | SnakeGame",
+    "summary": "Introduction"
+  }
+}
