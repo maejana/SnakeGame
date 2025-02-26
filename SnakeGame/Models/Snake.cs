@@ -1,4 +1,4 @@
-﻿using System.Drawing;
+﻿using System.Windows;
 using System.Collections.Generic;
 
 namespace SnakeGame.Models
@@ -13,7 +13,7 @@ namespace SnakeGame.Models
         /// <summary>
         /// Gets or sets the body of the snake as a linked list of points.
         /// </summary>
-        private LinkedList<Point> Body { get; set; } = new LinkedList<Point>();
+        public LinkedList<Point> Body { get; set; } = new LinkedList<Point>();
         
         
         /// <summary>

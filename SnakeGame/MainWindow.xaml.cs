@@ -9,6 +9,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using SnakeGame.Controllers;
+using SnakeGame.Models;
 
 namespace SnakeGame;
 
@@ -23,7 +24,25 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
-        gameController = new GameController();
+        gameController = new GameController(this);
         gameController.StartGame();
+    }
+
+    public void DrawGame()
+    {
+        GameCanvas.Children.Clear();
+
+        foreach (Point p in gameController.Snake.Body)
+        {
+            Rectangle rect = new Rectangle
+            {
+                Width = 20,
+                Height = 20,
+                Fill = Brushes.Green
+            };
+            Canvas.SetLeft(rect, p.X * 20);
+            Canvas.SetTop(rect, p.Y * 20);
+            GameCanvas.Children.Add(rect);
+        }
     }
 }
