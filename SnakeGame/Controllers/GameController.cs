@@ -1,13 +1,18 @@
-﻿using System.Windows.Threading;
+﻿using System.Windows;
+using System.Windows.Threading;
 using SnakeGame.Models;
 
 namespace SnakeGame.Controllers
 {
+    /// <summary>
+    /// Class for the Controllers of the Game
+    /// </summary>
     public class GameController
     {
         private readonly DispatcherTimer gameTimer;
         public Snake Snake { get; private set; }
         private readonly MainWindow mainWindow;
+        public Food Food { get; private set; }
 
         /// <summary>
         /// Controls the game.
@@ -19,7 +24,10 @@ namespace SnakeGame.Controllers
             gameTimer.Interval = TimeSpan.FromMilliseconds(150);
             gameTimer.Tick += GameLoop;
 
-            Snake = new Snake();
+            Food = new Food(null);
+            Snake = new Snake(Food);
+            Food.snake = Snake; 
+
         }
 
         /// <summary>
@@ -38,10 +46,37 @@ namespace SnakeGame.Controllers
             gameTimer.Stop();
         }
 
+        /// <summary>
+        /// Method to handle events for the Dispatchertimer.
+        /// </summary>
+        /// <param name="sender">source of the event</param>
+        /// <param name="e">Contains the event data for the DispatcherTimer.Tick</param>
         private void GameLoop(object sender, EventArgs e)
         {
             Snake.MoveSnake();
+            Food.CheckCollision();
+            CheckGameOver();
             mainWindow.DrawGame();
+        }
+
+        /// <summary>
+        /// Checks if the game is over.
+        /// </summary>
+        private void CheckGameOver()
+        {
+            var head = Snake.Body.First.Value;
+
+            if (head.X < 0 || head.Y < 0 || head.X >= 40 || head.Y >= 40)
+            {
+                StopGame();
+                MessageBox.Show("Game Over!");
+            }
+
+            if (Snake.Body.Skip(1).Contains(head))
+            {
+                StopGame();
+                MessageBox.Show("Game Over!");
+            }
         }
     }
 }

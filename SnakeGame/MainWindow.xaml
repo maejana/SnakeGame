@@ -7,4 +7,7 @@
         mc:Ignorable="d"
         Title="SnakeGame" Height="800" Width="800">
     <Canvas Name="GameCanvas" Background="Black"/>
+   
 </Window>
+
+
