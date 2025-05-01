@@ -1,6 +1,8 @@
 ﻿
 using System.Windows;
 using System.Collections.Generic;
+using SnakeGame.Controllers;
+
 
 namespace SnakeGame.Models
 {
@@ -9,6 +11,7 @@ namespace SnakeGame.Models
     /// </summary>
     public class Snake
     {
+        public GameController GameController { get; set; } 
         private Food food;
 
         /// <summary>
@@ -24,8 +27,9 @@ namespace SnakeGame.Models
         /// <summary>
         /// Initializes a new instance of the <see cref="Snake"/> class.
         /// </summary>
-        public Snake(Food food)
+        public Snake(GameController gameController, Food food)
         {
+            this.GameController = gameController; 
             this.food = food;
             Body.AddFirst(new Point(5, 5));
         }
@@ -65,4 +69,5 @@ namespace SnakeGame.Models
             }
         }
     }
+    
 }

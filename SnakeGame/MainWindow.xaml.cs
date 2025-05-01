@@ -59,6 +59,8 @@ public partial class MainWindow : Window
         Canvas.SetLeft(foodRect, foodPosition.X * 20);
         Canvas.SetTop(foodRect, foodPosition.Y * 20);
         GameCanvas.Children.Add(foodRect);
+
+        PointsTextBlock.Text = $"Points: {gameController.Points}";
     }
 
     private void OnKeyDown(object sender, KeyEventArgs e)

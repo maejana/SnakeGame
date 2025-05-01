@@ -14,6 +14,10 @@ namespace SnakeGame.Controllers
         private readonly MainWindow mainWindow;
         public Food Food { get; private set; }
 
+        public int Points { get; private set; } = 0; 
+        
+    
+
         /// <summary>
         /// Controls the game.
         /// </summary>
@@ -25,7 +29,7 @@ namespace SnakeGame.Controllers
             gameTimer.Tick += GameLoop;
 
             Food = new Food(null);
-            Snake = new Snake(Food);
+            Snake = new Snake(this, Food);
             Food.snake = Snake; 
 
         }
@@ -77,6 +81,10 @@ namespace SnakeGame.Controllers
                 StopGame();
                 MessageBox.Show("Game Over!");
             }
+        }
+        public void IncrementPoints()
+        {
+            Points++;
         }
     }
 }

@@ -6,8 +6,11 @@
         xmlns:local="clr-namespace:SnakeGame"
         mc:Ignorable="d"
         Title="SnakeGame" Height="800" Width="800">
-    <Canvas Name="GameCanvas" Background="Black"/>
-   
+    <Grid>
+        <!-- Canvas for the game --> 
+        <Canvas Name="GameCanvas" Background="Black"/>
+        <TextBlock x:Name="PointsTextBlock" FontSize="16" Foreground="White" Margin="10" />
+    </Grid> 
 </Window>
 
 

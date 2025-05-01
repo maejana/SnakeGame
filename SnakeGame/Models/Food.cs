@@ -1,5 +1,5 @@
 ﻿using System.Windows;
-
+using SnakeGame.Controllers; 
 namespace SnakeGame.Models
 {
     public class Food
@@ -25,6 +25,7 @@ namespace SnakeGame.Models
             if (snake.Body.First.Value == food)
             {
                 growthQueue++;
+                snake.GameController.IncrementPoints(); // Increment Points
                 PlaceFood();
             }
         }
